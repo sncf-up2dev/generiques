@@ -1,22 +1,22 @@
 package fr.sncf.d2d.up2dev;
 
-public class NullSafeBox {
+public class NullSafeBox<T> {
 
-    private Object value;
+    private T value;
 
-    public NullSafeBox(Object value) {
+    public NullSafeBox(T value) {
         this.value = value;
     }
 
-    public Object getValue() {
+    public T getValue() {
         return value;
     }
 
-    public void setValue(Object value) {
+    public void setValue(T value) {
         this.value = value;
     }
 
-    public Object getOrDefault(Object alt) {
+    public T getOrDefault(T alt) {
         if (this.value == null) {
             return alt;
         } else {
