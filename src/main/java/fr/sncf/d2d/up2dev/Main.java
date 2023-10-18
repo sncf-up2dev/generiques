@@ -18,9 +18,6 @@ public class Main {
         String str2 = nulBox.getOrDefault("hello");
         System.out.println(str2);
 
-        String str3 = nulBox.getOrThrow(new IllegalStateException());
-        System.out.println(str3);
-
         boolean b;
         b = isEmpty(intBox);
         b = isEmpty(strBox);
