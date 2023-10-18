@@ -3,11 +3,11 @@ package fr.sncf.d2d.up2dev;
 public class Main {
 
     public static void main(String[] args) {
-        NullSafeBox<Integer> intBox = new NullSafeBox<>(13);
-        NullSafeBox<String> strBox = new NullSafeBox<>("toto");
-        NullSafeBox<Object> objBox = new NullSafeBox<>(new Object());
-        NullSafeBox<String> nulBox = new NullSafeBox<>(null);
-        NullSafeBox <Exception> expBox = new NullSafeBox<>(new Exception());
+        NullSafeBox<Integer, RuntimeException> intBox = new NullSafeBox<>(13);
+        StringNullSafeBox strBox = new StringNullSafeBox("toto");
+        NullSafeBox<Object, RuntimeException> objBox = new NullSafeBox<>(new Object());
+        NullSafeBox<String, RuntimeException> nulBox = new NullSafeBox<>(null);
+        NullSafeBox<Exception, RuntimeException> expBox = new NullSafeBox<>(new Exception());
 
         System.out.println(strBox.getValue().toUpperCase());
 
@@ -17,5 +17,8 @@ public class Main {
 
         String str2 = nulBox.getOrDefault("hello");
         System.out.println(str2);
+
+        String str3 = nulBox.getOrThrow(new IllegalStateException());
+        System.out.println(str3);
     }
 }

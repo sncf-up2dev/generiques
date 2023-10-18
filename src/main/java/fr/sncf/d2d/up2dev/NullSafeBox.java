@@ -1,6 +1,8 @@
 package fr.sncf.d2d.up2dev;
 
-public class NullSafeBox<T> {
+import java.io.Serializable;
+
+public class NullSafeBox<T, E extends Throwable & Serializable> {
 
     private T value;
 
@@ -19,6 +21,14 @@ public class NullSafeBox<T> {
     public T getOrDefault(T alt) {
         if (this.value == null) {
             return alt;
+        } else {
+            return this.value;
+        }
+    }
+
+    public T getOrThrow(E exception) throws E {
+        if (this.value == null) {
+            throw exception;
         } else {
             return this.value;
         }
