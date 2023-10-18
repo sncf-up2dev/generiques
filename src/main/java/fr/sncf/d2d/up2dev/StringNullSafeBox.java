@@ -1,6 +1,6 @@
 package fr.sncf.d2d.up2dev;
 
-public class StringNullSafeBox extends NullSafeBox<String, RuntimeException> {
+public class StringNullSafeBox extends NullSafeBox<String> {
 
     public StringNullSafeBox(String value) {
         super(value);

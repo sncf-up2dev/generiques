@@ -2,7 +2,7 @@ package fr.sncf.d2d.up2dev;
 
 import java.io.Serializable;
 
-public class NullSafeBox<T, E extends Throwable & Serializable> {
+public class NullSafeBox<T> {
 
     private T value;
 
@@ -26,7 +26,7 @@ public class NullSafeBox<T, E extends Throwable & Serializable> {
         }
     }
 
-    public T getOrThrow(E exception) throws E {
+    public <E extends Throwable & Serializable> T getOrThrow(E exception) throws E {
         if (this.value == null) {
             throw exception;
         } else {
